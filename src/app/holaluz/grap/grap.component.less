@@ -1,0 +1,51 @@
+html, body{width:100%; padding:0;}
+.block1{
+    width:50%; 
+    height:50px; 
+    display:inline-block; 
+    background:red; 
+    padding: 0;
+    margin-top:2em;
+}
+.block2{
+    width:50%; 
+    height:50px; 
+    display:inline-block; 
+    background:green; 
+    padding: 0;
+}
+
+// add names
+@names: freedom, light ,paper ,building ,borrar ,shop, electricity, search, safe, distributors, borrar2, nps, talk, idea;
+// Moves to mixin file
+.generateCols(@i: length(@names))  when (@i > 0) {
+
+	.generateCols(@i - 1);
+  	@positionX: 136 * (@i - 1);
+  	@name: extract(@names, @i);
+  	&.big-@{name}{ 
+      	width: 116px;
+        height: 116px;
+    	background-position: ~"-@{positionX}px" 0px;
+  	}
+    &.medium-@{name} {
+        width: 86px;
+        height: 86px;
+        background-position: ~"-@{positionX}px" -142px;
+    }
+    &.small-@{name} {
+        width: 71px;
+        height: 71px;
+        background-position: ~"-@{positionX}px" -255px;
+    }
+}
+
+a.icon {
+    display: inline-block;
+    font-size: 0px;
+    color: transparent;
+    background-image: url("../../../assets/icons/hl-icon-sprites.svg"); 
+    .generateCols();
+}
+    
+
