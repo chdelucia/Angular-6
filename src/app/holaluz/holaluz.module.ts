@@ -6,6 +6,7 @@ import { HolaluzRoutingModule } from './holaluz-routing.module';
 import { GrapComponent } from './grap/grap.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+
 @NgModule({
   imports: [
     CommonModule,
